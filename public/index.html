@@ -1,0 +1,33 @@
+<html>
+<head>
+  <style>
+    #hegecam {
+      max-width: 100%;
+      max-height: 100%;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      overflow: auto;
+      position: fixed;
+      right: 0;
+      top: 0;
+    }
+  </style>
+  <script>
+  function bootstrap() {
+    refreshCamera();
+  }
+
+  function refreshCamera() {
+    setTimeout(function() {
+      var ms = new Date().getTime();
+      document.getElementById("hegecam").src = "/cam.jpeg?" + ms;
+      refreshCamera();
+    }, 5000)
+  }
+  </script>
+</head>
+<body onload="bootstrap()">
+  <img id="hegecam" src="/public/cam.jpeg" />
+</body>
+</html>
